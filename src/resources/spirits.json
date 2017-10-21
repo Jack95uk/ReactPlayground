@@ -1,0 +1,9 @@
+{
+  "vodka": 1,
+  "white_rum":2,
+  "spiced_rum":4,
+  "dark_rum":8,
+  "coffee_liquer":16,
+  "orange_liquer":32,
+  "apricot_brandy": 64
+}

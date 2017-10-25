@@ -9,8 +9,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      search: '',
-      selectedSpirits: 0
+      cocktailSearch: '',
+      selectedSpirits: 0,
+      hue: 0
     }
   }
 
@@ -30,38 +31,42 @@ class App extends Component {
     })
   }
 
-
+  randomiseColor = () => {
+    const html = document.querySelector('html');
+    let hue = Math.round(Math.random() * 360);
+    html.style.setProperty('--neon-primary', `hsl(${hue}, 100%, 50%)`);
+  }
 
   render() {
     const spiritEntries = Object.entries(Spirits).sort((a, b) => a[0] > b[0]);
 
     return (
       <div className="App">
-        <h1 className="app-title">Happy Hour</h1>
-          <div className="spirit-selector">
-            <h2>Spirits</h2>
-            <div className="checkbox-group">
-              {spiritEntries
-                .map(entry => {
-                const checked = (this.state.selectedSpirits & entry[1]);
-                return (
-                  <div key={entry[1]} className="spirit-option">
-                    <label>
-                      <input type="checkbox" name={entry[0]} checked={checked} onChange={this.handleSelection}/>
-                      <span>{entry[0].replace('_', ' ')}</span>
-                    </label>
-                  </div>
-                )
-              })}
+        <h1 className="app-title" onClick={this.randomiseColor}>Happy Hour</h1>
+        <div className="spirit-selector">
+          <h2>Spirits</h2>
+          <div className="checkbox-group">
+            {spiritEntries.map(entry => {
+              const checked = (this.state.selectedSpirits & entry[1]);
+              return (
+                <div key={entry[1]} className="spirit-option">
+                  <label>
+                    <input type="checkbox" name={entry[0]} checked={checked} onChange={this.handleSelection}/>
+                    <span>{entry[0].replace('_', ' ')}</span>
+                  </label>
+                </div>
+              )
+            })}
 
-            </div>
           </div>
-          <div className="cocktail-selector">
+        </div>
+        <div className="cocktail-selector">
+          <div className="cocktail-selector-header">
             <h2>Cocktails you can make</h2>
-            <input type="text" name="search" className="form-field" value={this.state.search} onChange={this.handleInput} placeholder="Search Cocktails"/>
-
-            <CocktailList search={this.state.search} selectedSpirits={this.state.selectedSpirits}/>
+            <input type="text" name="cocktailSearch" className="form-field" value={this.state.cocktailSearch} onChange={this.handleInput} placeholder="Search Cocktails"/>
           </div>
+          <CocktailList search={this.state.cocktailSearch} selectedSpirits={this.state.selectedSpirits}/>
+        </div>
       </div>
     );
   }

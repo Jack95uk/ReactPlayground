@@ -8,5 +8,6 @@
   "apricot_brandy": 64,
   "champagne": 128,
   "gin": 256,
-  "vermouth":512
+  "vermouth":512,
+  "campari":1024
 }

@@ -8,15 +8,16 @@ const GetListFromEnum = (value, resource) => {
 }
 
 const CocktailList = (props) => {
-  const filteredCocktails = props.search
+  const searchFilteredCocktails = props.search
     ? Cocktails.filter(cocktail => cocktail.name.toLowerCase().includes(props.search.toLowerCase()))
     : Cocktails;
-  const filteredCocktails2 = props.selectedSpirits > 0
-    ? filteredCocktails.filter(cocktail => props.selectedSpirits & cocktail.spirits)
-    : filteredCocktails;
+  const spiritFilteredCocktails = props.selectedSpirits > 0
+    ? searchFilteredCocktails.filter(cocktail => props.selectedSpirits & cocktail.spirits)
+    : searchFilteredCocktails;
+  const orderedCocktails = spiritFilteredCocktails.sort((a, b) => a.name > b.name);
   return (
     <div className="cocktail-list">
-      {filteredCocktails2.map(cocktail => {
+      {orderedCocktails.map(cocktail => {
         return (
           <div key={cocktail.name} className="card card-dark">
             <h3>{cocktail.name}</h3>

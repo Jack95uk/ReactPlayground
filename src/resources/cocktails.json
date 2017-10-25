@@ -17,6 +17,21 @@
   {
     "name": "Martini",
     "spirits": 768,
-    "URL": "https://en.wikipedia.org/wiki/Martini_(cocktail)"
+    "URL": "https://www.gordonsgin.com/en-gb/cocktails/gordons-dry-martini/"
+  },
+  {
+    "name": "Mojito",
+    "spirits": 2,
+    "URL": "https://www.captainmorgan.com/en-gb/serves/captain-mojito-recipe/"
+  },
+  {
+    "name": "Bloody Mary",
+    "spirits": 1,
+    "URL": "https://www.absolutdrinks.com/en/drinks/bloody-mary/"
+  },
+  {
+    "name": "Negroni",
+    "spirits": 1792,
+    "URL": "https://www.absolutdrinks.com/en/drinks/negroni/"
   }
 ]

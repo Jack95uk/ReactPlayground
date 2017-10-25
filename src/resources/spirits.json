@@ -5,5 +5,8 @@
   "dark_rum":8,
   "coffee_liquer":16,
   "orange_liquer":32,
-  "apricot_brandy": 64
+  "apricot_brandy": 64,
+  "champagne": 128,
+  "gin": 256,
+  "vermouth":512
 }

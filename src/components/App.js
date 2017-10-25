@@ -33,14 +33,16 @@ class App extends Component {
 
 
   render() {
-    const spiritEntries = Object.entries(Spirits);
+    const spiritEntries = Object.entries(Spirits).sort((a, b) => a[0] > b[0]);
 
     return (
       <div className="App">
+        <h1 className="app-title">Happy Hour</h1>
           <div className="spirit-selector">
             <h2>Spirits</h2>
             <div className="checkbox-group">
-              {spiritEntries.map(entry => {
+              {spiritEntries
+                .map(entry => {
                 const checked = (this.state.selectedSpirits & entry[1]);
                 return (
                   <div key={entry[1]} className="spirit-option">
@@ -56,7 +58,7 @@ class App extends Component {
           </div>
           <div className="cocktail-selector">
             <h2>Cocktails you can make</h2>
-            <input type="text" name="search" value={this.state.search} onChange={this.handleInput}/>
+            <input type="text" name="search" className="form-field" value={this.state.search} onChange={this.handleInput} placeholder="Search Cocktails"/>
 
             <CocktailList search={this.state.search} selectedSpirits={this.state.selectedSpirits}/>
           </div>

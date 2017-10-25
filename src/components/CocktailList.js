@@ -18,13 +18,13 @@ const CocktailList = (props) => {
     <div className="cocktail-list">
       {filteredCocktails2.map(cocktail => {
         return (
-          <div key={cocktail.name}>
+          <div key={cocktail.name} className="card card-dark">
             <h3>{cocktail.name}</h3>
             <ul>
-              {GetListFromEnum(cocktail.spirits, Spirits).map(spirit => <li key={spirit}>{spirit.replace('_', ' ')}</li>)}
+              {GetListFromEnum(cocktail.spirits, Spirits).sort().map(spirit => <li key={spirit}>{spirit.replace('_', ' ')}</li>)}
             </ul>
             <p>
-              <a href={cocktail.URL} target="_blank">Recipe</a>
+              <a href={cocktail.URL} target="_blank" className="link">Recipe</a>
             </p>
           </div>
         )

@@ -1,4 +1,6 @@
+@import url("https://fonts.googleapis.com/css?family=Comfortaa");
 html {
+  --neon-primary: magenta;
   box-sizing: border-box; }
 
 *, *::before, *::after {
@@ -9,21 +11,60 @@ body {
   padding: 15px;
   font-family: sans-serif;
   background-color: #222;
-  background-image: linear-gradient(to top, orangered, gold);
+  background-image: linear-gradient(to bottom, black, var(--neon-primary));
+  background-attachment: fixed;
   color: white;
   border: 10px solid white;
   min-height: 100vh;
   width: 100vw; }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Comfortaa', Arial, sans-serif;
+  color: #ffffff;
+  color: #ffffff;
+  text-shadow: 0 0 5px var(--neon-primary), 0 0 10px var(--neon-primary), 0 0 15px var(--neon-primary), 0 0 20px var(--neon-primary), 0 0 35px var(--neon-primary), 0 0 40px var(--neon-primary), 0 0 50px var(--neon-primary); }
+
 .App {
   display: grid;
+  height: 92vh;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto repeat(2, 1fr);
   grid-gap: 15px; }
   .App .spirit-selector,
   .App .cocktail-selector {
-    grid-column: 1 / 3; }
+    grid-column: 1 / 3;
+    overflow-y: auto;
+    overflow-x: visible; }
   @media screen and (min-width: 500px) {
     .App .spirit-selector {
       grid-column: 1 / 2; }
     .App .cocktail-selector {
       grid-column: 2 / 3; } }
+
+.app-title {
+  grid-column: 1 / 3;
+  text-align: center; }
+
+.form-field {
+  display: block;
+  width: 100%;
+  border: none;
+  padding: 10px;
+  color: #ffffff;
+  font-family: inherit;
+  background-color: rgba(0, 0, 0, 0.5); }
+  .form-field::placeholder {
+    color: #ffffff; }
+
+.card {
+  padding: 10px;
+  margin: 10px 0; }
+  .card.card-dark {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white; }
+  .card.card-light {
+    background-color: rgba(255, 255, 255, 0.5);
+    color: black; }
+
+.link {
+  color: inherit; }

@@ -8,5 +8,15 @@
     "name": "Zombie",
     "spirits": 102,
     "URL": "https://uk.thebar.com/recipe/zombie"
+  },
+  {
+    "name": "Mimosa",
+    "spirits": 128,
+    "URL": "https://en.wikipedia.org/wiki/Mimosa_(cocktail)"
+  },
+  {
+    "name": "Martini",
+    "spirits": 768,
+    "URL": "https://en.wikipedia.org/wiki/Martini_(cocktail)"
   }
 ]

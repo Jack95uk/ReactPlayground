@@ -38,31 +38,38 @@ class App extends Component {
   }
 
   render() {
-    const spiritEntries = Object.entries(Spirits).sort((a, b) => a[0] > b[0]);
+    const spiritEntries = Object.entries(Spirits).sort((a, b) => {
+      if (a[0] < b[0]) return -1;
+      if (a[0] > b[0]) return 1;
+      return 0;
+    });
 
     return (
       <div className="App">
         <h1 className="app-title" onClick={this.randomiseColor}>Happy Hour</h1>
         <div className="spirit-selector">
-          <h2>Spirits</h2>
-          <div className="checkbox-group">
-            {spiritEntries.map(entry => {
-              const checked = (this.state.selectedSpirits & entry[1]);
-              return (
-                <div key={entry[1]} className="spirit-option">
-                  <label>
-                    <input type="checkbox" name={entry[0]} checked={checked} onChange={this.handleSelection}/>
-                    <span>{entry[0].replace('_', ' ')}</span>
-                  </label>
-                </div>
-              )
-            })}
-
+          <h2>Alcohol</h2>
+          <div>
+            <p>I have:</p>
+            <div className="checkbox-group">
+              {spiritEntries.map(entry => {
+                const checked = (this.state.selectedSpirits & entry[1]);
+                return (
+                  <div key={entry[1]} className="spirit-option">
+                    <label>
+                      <input type="checkbox" name={entry[0]} checked={checked} onChange={this.handleSelection} style={{display:"none"}}/>
+                      <span className="custom-checkbox">&otimes;</span>
+                      <span>{entry[0].replace('_', ' ')}</span>
+                    </label>
+                  </div>
+                )
+              })}
+            </div>
           </div>
         </div>
         <div className="cocktail-selector">
           <div className="cocktail-selector-header">
-            <h2>Cocktails you can make</h2>
+            <h2>Available Cocktails</h2>
             <input type="text" name="cocktailSearch" className="form-field" value={this.state.cocktailSearch} onChange={this.handleInput} placeholder="Search Cocktails"/>
           </div>
           <CocktailList search={this.state.cocktailSearch} selectedSpirits={this.state.selectedSpirits}/>

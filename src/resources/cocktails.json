@@ -33,5 +33,25 @@
     "name": "Negroni",
     "spirits": 1792,
     "URL": "https://www.absolutdrinks.com/en/drinks/negroni/"
+  },
+  {
+    "name": "Pina Colada",
+    "spirits": 4,
+    "URL": "https://uk.thebar.com/recipe/pina-colada"
+  },
+  {
+    "name": "Mai Tai",
+    "spirits": 40,
+    "URL": "https://uk.thebar.com/recipe/captain-morgan-original-rum-mai-tai"
+  },
+  {
+    "name": "Dark n Stormy",
+    "spirits": 8,
+    "URL": "https://www.captainmorgan.com/en-gb/serves/captain-ginger-recipe/"
+  },
+  {
+    "name": "Kir Royale",
+    "spirits": 2176,
+    "URL": "http://www.chambordchannel.com/en-gb/cocktail-recipes/royale/"
   }
 ]

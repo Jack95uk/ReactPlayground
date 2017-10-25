@@ -9,5 +9,6 @@
   "champagne": 128,
   "gin": 256,
   "vermouth":512,
-  "campari":1024
+  "campari":1024,
+  "raspberry_liquer":2048
 }

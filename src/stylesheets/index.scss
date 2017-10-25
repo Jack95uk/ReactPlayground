@@ -62,6 +62,22 @@ h1, h2, h3, h4, h5, h6 {
   user-select: none;
 }
 
+.custom-checkbox {
+    display: inline-block;
+    opacity: 0.5;
+    margin: 0 5px;
+}
+input:checked + .custom-checkbox {
+  opacity: 1;
+  @include neon-glow;
+}
+label input[type=checkbox],
+label input[type=radio] {
+  ~ span {
+    cursor: pointer;
+  }
+}
+
 .cocktail-list {
   overflow-y: auto;
 }

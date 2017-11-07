@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Spirits from '../resources/spirits.json';
+import Spirits from '../resources/spirits';
 import Cocktails from '../resources/cocktails.json';
 
 const GetListFromEnum = (value, resource) => {

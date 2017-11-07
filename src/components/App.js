@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 import CocktailList from './CocktailList';
 
-import Spirits from '../resources/spirits.json';
+import Spirits from '../resources/spirits';
 
 class App extends Component {
   constructor(props) {

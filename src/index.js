@@ -1,7 +1,7 @@
 import React from 'react';
 import {render} from 'react-dom';
 import {Provider, connect} from 'react-redux';
-import {createStore, bindActionCreators} from 'redux';
+import {createStore, bindActionCreators, compose} from 'redux';
 import registerServiceWorker from './registerServiceWorker';
 import happyHour from './reducers/index';
 import App from './components/App';
@@ -24,7 +24,11 @@ function MapDispatchToProps(dispatch) {
 
 const Main = connect(mapStateToProps, MapDispatchToProps)(App);
 
-let store = createStore(happyHour);
+const enhancers = compose(
+  window.devToolsExtension ? window.devToolsExtension() : f => f
+);
+
+let store = createStore(happyHour, enhancers);
 
 render(
   <Provider store={store}>
@@ -32,5 +36,6 @@ render(
   </Provider>,
   document.getElementById('root')
 );
+
 
 registerServiceWorker();

@@ -7,10 +7,17 @@ export function addCocktail(name, spirits, URL) {
   }
 }
 
-export function applySearch(text) {
+export function addSpirit(spirit) {
   return {
-    type: 'APPLY_SEARCH',
-    text
+    type: 'ADD_SPIRIT',
+    spirit
+  }
+}
+
+export function removeSpirit(spirit) {
+  return {
+    type: 'REMOVE_SPIRIT',
+    spirit
   }
 }
 

@@ -1,6 +1,6 @@
 {
   "name": "happy-hour",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.0.0",
@@ -30,7 +30,7 @@
     "url": "git+https://github.com/Jack95uk/HappyHour.git"
   },
   "author": "jack95uk",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/Jack95uk/HappyHour/issues"
   }

@@ -22,7 +22,7 @@
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
   },
-  "homepage": "https://jack95uk.github.com/HappyHour",
+  "homepage": "https://Jack95uk.github.io/HappyHour/",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "./src/index.js",
   "repository": {

@@ -1,12 +1,14 @@
 {
-  "name": "react-playground",
+  "name": "happy-hour",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "gh-pages": "^1.0.0",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
-    "react-scripts": "1.0.14"
+    "react-redux": "^5.0.6",
+    "react-scripts": "1.0.14",
+    "redux": "^3.7.2"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -20,5 +22,16 @@
     "gulp": "^3.9.1",
     "gulp-sass": "^3.1.0"
   },
-  "homepage": "https://jack95uk.github.com/HappyHour"
+  "homepage": "https://github.com/Jack95uk/HappyHour/",
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
+  "main": "./src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jack95uk/HappyHour.git"
+  },
+  "author": "jack95uk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jack95uk/HappyHour/issues"
+  }
 }

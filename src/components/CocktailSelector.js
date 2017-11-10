@@ -1,7 +1,8 @@
 import React from 'react';
 import CocktailList from './CocktailList';
+//import {connect} from 'react-redux';
 
-export default class CocktailSelector extends React.Component {
+class CocktailSelector extends React.Component {
   constructor(props){
     super(props);
 
@@ -28,3 +29,5 @@ export default class CocktailSelector extends React.Component {
     )
   }
 }
+
+export default CocktailSelector;

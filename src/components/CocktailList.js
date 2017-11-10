@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import CocktailCard from './CocktailCard';
 
-const CocktailList = ({cocktails, search, selectedSpirits}) => {
+const CocktailList = ({cocktails = [], search, selectedSpirits}) => {
   const spiritFilteredCocktails = selectedSpirits > 0
     ? cocktails.filter(cocktail => selectedSpirits & cocktail.spirits)
     : cocktails;

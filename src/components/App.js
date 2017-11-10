@@ -3,6 +3,8 @@ import React, {Component} from 'react';
 import CocktailSelector from './CocktailSelector';
 import SpiritSelector from './SpiritSelector';
 
+import {updateHue} from '../actions/actionCreators';
+
 class App extends Component {
 
   componentDidUpdate() {
@@ -10,10 +12,9 @@ class App extends Component {
     html.style.setProperty('--neon-primary', `hsl(${this.props.hue}, 100%, 50%)`);
   }
 
-
   randomiseColor = () => {
     let hue = Math.round(Math.random() * 360);
-    this.props.updateHue(hue);
+    this.props.dispatch(updateHue(hue));
   }
 
   render() {

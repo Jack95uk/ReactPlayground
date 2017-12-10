@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 
 import CocktailSelector from './CocktailSelector';
 import SpiritSelector from './SpiritSelector';
@@ -21,11 +22,11 @@ class App extends Component {
     return (
       <div className="App">
         <h1 className="app-title" onClick={this.randomiseColor}>Happy Hour</h1>
-        <SpiritSelector {...this.props}/>
-        <CocktailSelector {...this.props}/>
+        <SpiritSelector/>
+        <CocktailSelector/>
       </div>
     );
   }
 }
 
-export default App;
+export default connect(state => ({hue: state.hue}))(App);

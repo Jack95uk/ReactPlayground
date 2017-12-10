@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 
 const SpiritCheckbox = ({name, value, checked, onChange}) => {
   return (
-    <div key={value} className="spirit-option">
+    <div key={name} className="spirit-option">
       <label>
-        <input type="checkbox" name={name} checked={checked} onChange={onChange} style={{
-            display: "none"
-          }}/>
+        <input type="checkbox" name={name} checked={checked} onChange={onChange} style={{display: "none"}}/>
         <span className="custom-checkbox">&otimes;</span>
         <span>{name.replace('_', ' ')}</span>
       </label>

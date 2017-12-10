@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import Spirits from '../resources/spirits';
 import SpiritCheckbox from './SpiritCheckbox';
 import {addSpirit, removeSpirit} from '../actions/actionCreators';
@@ -24,22 +25,25 @@ const SpiritSelector = ({selectedSpirits, dispatch}) => {
     }
   }
 
-  return (<div className="spirit-selector">
-    <h2>Alcohol</h2>
-    <div>
-      <p>I have:</p>
-      <div className="checkbox-group">
-        {spirits.map(spirit => <SpiritCheckbox key={spirit.value} name={spirit.name} value={spirit.value} checked={!!(selectedSpirits & spirit.value)} onChange={handleSelection}/>)}
+  return (
+    <div className="spirit-selector">
+      <h2>Alcohol</h2>
+      <div>
+        <p>I have:</p>
+        <div className="checkbox-group">
+          {spirits.map(
+            spirit => <SpiritCheckbox key={spirit.value} name={spirit.name} value={spirit.value} checked={!!(selectedSpirits & spirit.value)} onChange={handleSelection}/>
+          )}
+        </div>
       </div>
     </div>
-  </div>)
+  )
 }
 
 SpiritSelector.propTypes = {
   selectedSpirits: PropTypes.number.isRequired,
   dispatch: PropTypes.func.isRequired
-  //addSpirit: PropTypes.func.isRequired,
-  //removeSpirit: PropTypes.func.isRequired
 }
 
-export default SpiritSelector;
+// map selectedSpirits to props only - dispatch actions separately
+export default connect(state => ({selectedSpirits: state.selectedSpirits}))(SpiritSelector);

@@ -25,20 +25,17 @@ const SpiritSelector = ({ selectedSpirits, dispatch }) => {
 
   return (
     <div className="spirit-selector">
-      <h2>Alcohol</h2>
-      <div>
-        <p>I have:</p>
-        <div className="checkbox-group">
-          {spirits.map(spirit => (
-            <SpiritCheckbox
-              key={spirit.value}
-              name={spirit.name}
-              value={spirit.value}
-              checked={!!(selectedSpirits & spirit.value)}
-              onChange={handleSelection}
-            />
-          ))}
-        </div>
+      <h2>What&apos;ve you got?</h2>
+      <div className="checkbox-group">
+        {spirits.map(spirit => (
+          <SpiritCheckbox
+            key={spirit.value}
+            name={spirit.name}
+            value={spirit.value}
+            checked={!!(selectedSpirits & spirit.value)}
+            onChange={handleSelection}
+          />
+        ))}
       </div>
     </div>
   );

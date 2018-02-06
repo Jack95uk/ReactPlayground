@@ -7,9 +7,11 @@ import SpiritSelector from './SpiritSelector';
 
 import { updateHue } from '../actions';
 
+import GetAndLoadCocktails from '../utilities';
+
 class App extends Component {
-  propTypes = {
-    hue: PropTypes.string,
+  static propTypes = {
+    hue: PropTypes.number.isRequired,
     dispatch: PropTypes.func.isRequired,
   }
 
@@ -23,12 +25,18 @@ class App extends Component {
     this.props.dispatch(updateHue(hue));
   }
 
+  handleLoadCocktails = () => {
+    GetAndLoadCocktails(this.props.dispatch);
+  }
+
   render() {
     return (
       <div className="App">
         <h1 className="app-title">Happy Hour</h1>
 
         <button onClick={this.randomiseColor}>Mix it up!</button>
+        <button onClick={this.handleLoadCocktails}>Try Something New</button>
+
         <div className="grid">
           <SpiritSelector />
           <CocktailSelector />

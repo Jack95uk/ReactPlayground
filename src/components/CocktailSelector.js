@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CocktailList from './CocktailList';
-import Cocktails from '../resources/cocktails';
 
 class CocktailSelector extends React.Component {
   constructor(props) {
@@ -35,15 +34,15 @@ class CocktailSelector extends React.Component {
   }
 
   render() {
-    const cocktails =
-      this.filterCocktails(Cocktails, this.state.search, this.props.selectedSpirits);
+    const { selectedSpirits, cocktails } = this.props;
+    const filteredCocktails =
+      this.filterCocktails(cocktails, this.state.search, selectedSpirits);
     return (
       <div className="cocktail-selector">
         <div className="cocktail-selector-header">
-          <h2>Available Cocktails</h2>
           <input type="text" className="form-field" value={this.state.search} onChange={this.handleInput} placeholder="Search Cocktails" />
         </div>
-        <CocktailList cocktails={cocktails} />
+        <CocktailList cocktails={filteredCocktails} />
       </div>
     );
   }
@@ -51,10 +50,19 @@ class CocktailSelector extends React.Component {
 
 CocktailSelector.propTypes = {
   selectedSpirits: PropTypes.number,
+  cocktails: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string,
+    spirits: PropTypes.number,
+    URL: PropTypes.string,
+  })),
 };
 
 CocktailSelector.defaultProps = {
   selectedSpirits: 0,
+  cocktails: [],
 };
 
-export default connect(state => ({ selectedSpirits: state.selectedSpirits }))(CocktailSelector);
+export default connect(state => ({
+  selectedSpirits: state.selectedSpirits,
+  cocktails: state.cocktails,
+}))(CocktailSelector);

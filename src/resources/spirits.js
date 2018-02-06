@@ -11,6 +11,7 @@ const Spirits = {
   vermouth: 1 << 9,
   campari: 1 << 10,
   raspberry_liquer: 1 << 11,
+  peach_schnapps: 1 << 12,
 };
 
 export default Spirits;

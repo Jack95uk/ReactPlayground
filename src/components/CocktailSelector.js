@@ -1,22 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import CocktailList from './CocktailList';
-import {connect} from 'react-redux';
 import Cocktails from '../resources/cocktails';
 
 class CocktailSelector extends React.Component {
-  constructor(props){
+  constructor(props) {
     super(props);
 
     this.state = {
-      search: ''
-    }
+      search: '',
+    };
   }
 
   handleInput = (e) => {
     this.setState({
-      search: e.target.value
-    })
+      search: e.target.value,
+    });
   }
 
   filterCocktails = (cocktails = [], search, selectedSpirits) => {
@@ -24,27 +24,37 @@ class CocktailSelector extends React.Component {
       ? cocktails.filter(cocktail => selectedSpirits & cocktail.spirits)
       : cocktails;
     filteredCocktails = search.length > 0
-      ? filteredCocktails.filter(cocktail => cocktail.name.toLowerCase().includes(search.toLowerCase()))
+      ? filteredCocktails.filter(cocktail =>
+        cocktail.name.toLowerCase().includes(search.toLowerCase()))
       : filteredCocktails;
-    return filteredCocktails.sort((a, b) => a.name > b.name ? 1 : a.name < b.name ? -1 : 0);
+    return filteredCocktails.sort((a, b) => {
+      if (a.name > b.name) return 1;
+      if (a.name < b.name) return -1;
+      return 0;
+    });
   }
 
-  render(){
-    const cocktails = this.filterCocktails(Cocktails, this.state.search, this.props.selectedSpirits)
+  render() {
+    const cocktails =
+      this.filterCocktails(Cocktails, this.state.search, this.props.selectedSpirits);
     return (
       <div className="cocktail-selector">
         <div className="cocktail-selector-header">
           <h2>Available Cocktails</h2>
-          <input type="text" className="form-field" value={this.state.search} onChange={this.handleInput} placeholder="Search Cocktails"/>
+          <input type="text" className="form-field" value={this.state.search} onChange={this.handleInput} placeholder="Search Cocktails" />
         </div>
-        <CocktailList cocktails={cocktails}/>
+        <CocktailList cocktails={cocktails} />
       </div>
-    )
+    );
   }
 }
 
 CocktailSelector.propTypes = {
-  selectedSpirits: PropTypes.number
-}
+  selectedSpirits: PropTypes.number,
+};
 
-export default connect(state => ({selectedSpirits: state.selectedSpirits}))(CocktailSelector);
+CocktailSelector.defaultProps = {
+  selectedSpirits: 0,
+};
+
+export default connect(state => ({ selectedSpirits: state.selectedSpirits }))(CocktailSelector);

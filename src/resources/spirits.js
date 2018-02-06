@@ -10,7 +10,7 @@ const Spirits = {
   gin: 1 << 8,
   vermouth: 1 << 9,
   campari: 1 << 10,
-  raspberry_liquer: 1 << 11
-}
+  raspberry_liquer: 1 << 11,
+};
 
 export default Spirits;

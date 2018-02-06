@@ -3,27 +3,27 @@ export function addCocktail(name, spirits, URL) {
     type: 'ADD_COCKTAIL',
     name,
     spirits,
-    URL
-  }
+    URL,
+  };
 }
 
 export function addSpirit(spirit) {
   return {
     type: 'ADD_SPIRIT',
-    spirit
-  }
+    spirit,
+  };
 }
 
 export function removeSpirit(spirit) {
   return {
     type: 'REMOVE_SPIRIT',
-    spirit
-  }
+    spirit,
+  };
 }
 
 export function updateHue(degrees) {
   return {
     type: 'UPDATE_HUE',
-    degrees
-  }
+    degrees,
+  };
 }

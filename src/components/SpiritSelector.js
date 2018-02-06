@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spirits from '../resources/spirits';
 import SpiritCheckbox from './SpiritCheckbox';
-import { addSpirit, removeSpirit } from '../actions/actionCreators';
+import { addSpirit, removeSpirit } from '../actions';
 
 const SpiritSelector = ({ selectedSpirits, dispatch }) => {
   const spirits = Object

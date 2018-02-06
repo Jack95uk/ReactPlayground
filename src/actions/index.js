@@ -1,6 +1,11 @@
+export const ADD_COCKTAIL = 'ADD_COCKTAIL';
+export const ADD_SPIRIT = 'ADD_SPIRIT';
+export const REMOVE_SPIRIT = 'REMOVE_SPIRIT';
+export const UPDATE_HUE = 'UPDATE_HUE';
+
 export function addCocktail(name, spirits, URL) {
   return {
-    type: 'ADD_COCKTAIL',
+    type: ADD_COCKTAIL,
     name,
     spirits,
     URL,
@@ -9,21 +14,21 @@ export function addCocktail(name, spirits, URL) {
 
 export function addSpirit(spirit) {
   return {
-    type: 'ADD_SPIRIT',
+    type: ADD_SPIRIT,
     spirit,
   };
 }
 
 export function removeSpirit(spirit) {
   return {
-    type: 'REMOVE_SPIRIT',
+    type: REMOVE_SPIRIT,
     spirit,
   };
 }
 
 export function updateHue(degrees) {
   return {
-    type: 'UPDATE_HUE',
+    type: UPDATE_HUE,
     degrees,
   };
 }

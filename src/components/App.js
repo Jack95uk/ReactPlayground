@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import CocktailSelector from './CocktailSelector';
 import SpiritSelector from './SpiritSelector';
 
-import { updateHue } from '../actions/actionCreators';
+import { updateHue } from '../actions';
 
 class App extends Component {
   propTypes = {

@@ -1,17 +1,13 @@
-const Spirits = {
-  vodka: 1 << 0,
-  white_rum: 1 << 1,
-  spiced_rum: 1 << 2,
-  dark_rum: 1 << 3,
-  coffee_liquer: 1 << 4,
-  orange_liquer: 1 << 5,
-  apricot_brandy: 1 << 6,
-  champagne: 1 << 7,
-  gin: 1 << 8,
-  vermouth: 1 << 9,
-  campari: 1 << 10,
-  raspberry_liquer: 1 << 11,
-  peach_schnapps: 1 << 12,
-};
-
-export default Spirits;
+export const vodka = 1 << 0;
+export const whiteRum = 1 << 1;
+export const spicedRum = 1 << 2;
+export const darkRum = 1 << 3;
+export const coffeeLiquer = 1 << 4;
+export const orangeLiquer = 1 << 5;
+export const apricotBrandy = 1 << 6;
+export const champagne = 1 << 7;
+export const gin = 1 << 8;
+export const vermouth = 1 << 9;
+export const campari = 1 << 10;
+export const raspberryLiquer = 1 << 11;
+export const peachSchnapps = 1 << 12;

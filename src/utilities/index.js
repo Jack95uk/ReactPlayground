@@ -1,22 +1,17 @@
-import { loadCocktails } from '../actions';
-import Spirits from '../resources/spirits';
+export function GetListFromEnum(value, resource) {
+  return Object
+    .entries(resource)
+    .filter(entry => value & entry[1])
+    .map(entry => entry[0]);
+}
 
-const newCocktails = [
-  {
-    name: 'Hurricane',
-    spirits: Spirits.white_rum | Spirits.dark_rum,
-    URL: 'https://www.liquor.com/recipes/hurricane/',
-  },
-  {
-    name: 'Sex on the Beach',
-    spirits: Spirits.vodka | Spirits.peach_schnapps,
-    URL: 'https://www.socialandcocktail.co.uk/cocktails/sex-on-the-beach/',
-  },
-];
-
-export default function getAndLoadCocktails(dispatch) {
-  // set start status
-  new Promise((resolve) => {
-    setTimeout(resolve, 2000);
-  }).then(() => dispatch(loadCocktails(newCocktails)));
+export function GetReadablePropName(string) {
+  return string
+    .split('')
+    .map((char, i) => {
+      if (i === 0) return char.toUpperCase();
+      if (char === char.toUpperCase()) return ` ${char}`;
+      return char;
+    })
+    .join('');
 }

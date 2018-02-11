@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import { GetReadablePropName } from '../utilities';
+
 const SpiritCheckbox = ({ name, checked, onChange }) => (
   <div key={name} className="spirit-option">
     <label htmlFor={name}>
@@ -13,7 +15,7 @@ const SpiritCheckbox = ({ name, checked, onChange }) => (
         style={{ display: 'none' }}
       />
       <span className="custom-checkbox">&otimes;</span>
-      <span>{name.replace('_', ' ')}</span>
+      <span>{GetReadablePropName(name)}</span>
     </label>
   </div>
 );

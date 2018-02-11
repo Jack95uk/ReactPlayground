@@ -1,4 +1,4 @@
-import { ADD_SPIRIT, REMOVE_SPIRIT } from '../actions';
+import { ADD_SPIRIT, REMOVE_SPIRIT } from '../actions/types';
 
 export default function spiritReducer(state = 0, action) {
   switch (action.type) {

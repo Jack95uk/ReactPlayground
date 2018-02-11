@@ -5,45 +5,65 @@ import { connect } from 'react-redux';
 import CocktailSelector from './CocktailSelector';
 import SpiritSelector from './SpiritSelector';
 
-import { updateHue } from '../actions';
+import { updateHue } from '../actions/actionCreators';
 
-import GetAndLoadCocktails from '../utilities';
+import { GetAndLoadCocktails } from '../actions/thunks';
 
 class App extends Component {
   static propTypes = {
     hue: PropTypes.number.isRequired,
-    dispatch: PropTypes.func.isRequired,
+    updateHue: PropTypes.func.isRequired,
+    getAndLoadCocktails: PropTypes.func.isRequired,
+  }
+
+  componentWillMount() {
+    this.setHTMLColor();
   }
 
   componentDidUpdate() {
+    this.setHTMLColor();
+  }
+
+  setHTMLColor = () => {
     const html = document.querySelector('html');
     html.style.setProperty('--neon-primary', `hsl(${this.props.hue}, 100%, 50%)`);
   }
 
   randomiseColor = () => {
     const hue = Math.round(Math.random() * 360);
-    this.props.dispatch(updateHue(hue));
+    this.props.updateHue(hue);
   }
 
   handleLoadCocktails = () => {
-    GetAndLoadCocktails(this.props.dispatch);
+    this.props.getAndLoadCocktails();
   }
 
   render() {
     return (
       <div className="App">
-        <h1 className="app-title">Happy Hour</h1>
+        <div className="container">
+          <h1 className="app-title">Happy Hour</h1>
 
-        <button onClick={this.randomiseColor}>Mix it up!</button>
-        <button onClick={this.handleLoadCocktails}>Try Something New</button>
+          <button onClick={this.randomiseColor}>Mix it up!</button>
+          <button onClick={this.handleLoadCocktails}>Try Something New</button>
 
-        <div className="grid">
-          <SpiritSelector />
-          <CocktailSelector />
+          <div className="grid">
+            <SpiritSelector />
+            <CocktailSelector />
+          </div>
         </div>
       </div>
     );
   }
 }
 
-export default connect(state => ({ hue: state.hue }))(App);
+const mapStateToProps = state => ({
+  hue: state.hue,
+});
+
+const mapDispatchToProps = dispatch => ({
+  updateHue: int => dispatch(updateHue(int)),
+  getAndLoadCocktails: () => dispatch(GetAndLoadCocktails()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

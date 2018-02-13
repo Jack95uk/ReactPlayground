@@ -1,0 +1,120 @@
+@import './text-effects';
+
+html {
+  box-sizing: border-box;
+}
+
+*,*::before,*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 15px;
+  font-family: sans-serif;
+  background-color: #222;
+  background-image: linear-gradient(to bottom, black, var(--neon-primary));
+  background-attachment: fixed;
+  color: white;
+  min-height: 100vh;
+  width: 100vw;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Comfortaa', Arial, sans-serif;
+  color: #ffffff;
+  text-align: center;
+  @include neon-glow;
+}
+
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  max-width: 900px;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 15px;  
+}
+.spirit-selector,
+    .cocktail-selector {
+      grid-column: span 3;
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+  .spirit-selector,
+  .cocktail-selector {
+    grid-column: span 3;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
+  @media screen and (min-width: 500px){
+    .spirit-selector {
+      grid-column: span 1;      
+    }
+    .cocktail-selector {
+      grid-column: span 2;
+    }
+  }
+.app-title {
+  text-align: center;
+}
+
+.custom-checkbox {
+    display: inline-block;
+    opacity: 0.5;
+    margin: 0 5px;
+}
+input:checked + .custom-checkbox {
+  opacity: 1;
+  @include neon-glow;
+}
+label input[type=checkbox],
+label input[type=radio] {
+  ~ span {
+    cursor: pointer;
+  }
+}
+
+.cocktail-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 15px;
+  padding: 15px 0;
+}
+
+.form-field {
+  display: block;
+  width: 100%;
+  border: none;
+  padding:10px;
+  color: #ffffff;
+  font-family: inherit;
+  background-color: rgba(black, 0.5);
+
+  &::placeholder {
+    color: #ffffff;
+  }
+}
+
+.card {
+  padding: 10px;
+
+  &.card-dark {
+    background-color: rgba(black, 0.5);
+    color: white;
+  }
+  &.card-light {
+    background-color: rgba(white, 0.5);
+    color: black;
+  }
+}
+
+.link {
+  color: inherit;
+}

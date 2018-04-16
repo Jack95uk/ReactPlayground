@@ -3,11 +3,23 @@ import { render } from 'react-dom';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import Thunk from 'redux-thunk';
+import firebase from 'firebase';
+
 import registerServiceWorker from './registerServiceWorker';
 import * as Reducers from './reducers/index';
 import App from './components/App';
 
 import './stylesheets/index.scss';
+
+const config = {
+  apiKey: 'AIzaSyBNztGFPywYUsIZCtlxNbQ0jUWpy7W5ceQ',
+  authDomain: 'happy-hour-firebase.firebaseapp.com',
+  databaseURL: 'https://happy-hour-firebase.firebaseio.com',
+  projectId: 'happy-hour-firebase',
+  storageBucket: '',
+  messagingSenderId: '431059344460',
+};
+firebase.initializeApp(config);
 
 const enhancers = compose(window.devToolsExtension ? window.devToolsExtension() : f => f);
 

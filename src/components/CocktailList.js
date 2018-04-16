@@ -6,6 +6,7 @@ import CocktailCard from './CocktailCard';
 
 const CocktailList = ({ cocktails, search, selectedSpirits }) => {
   const filterCocktails = (list = [], string, values) => {
+    if (!list) return [];
     let filteredCocktails = values > 0
       ? list.filter(cocktail => values & cocktail.spirits)
       : list;
@@ -20,9 +21,12 @@ const CocktailList = ({ cocktails, search, selectedSpirits }) => {
     });
   };
 
-  const cocktailIds = Object.keys(cocktails);
+  const cocktailsArray = Object.entries(cocktails)
+    .map(([key, value]) => ({
+      id: key,
+      ...value,
+    }));
 
-  const cocktailsArray = cocktailIds.map(id => cocktails[id]);
   const filteredCocktails =
     filterCocktails(cocktailsArray, search, selectedSpirits);
   return (
@@ -50,13 +54,13 @@ CocktailList.propTypes = {
 };
 
 CocktailList.defaultProps = {
-  cocktails: [],
+  cocktails: {},
   search: '',
   selectedSpirits: 0,
 };
 
 const mapStateToProps = state => ({
-  cocktails: state.cocktails,
+  // cocktails: state.cocktails,
   selectedSpirits: state.selectedSpirits,
 });
 

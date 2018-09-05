@@ -61,17 +61,17 @@
     "gulp": "^4.0.0",
     "gulp-sass": "^3.1.0"
   },
-  "homepage": "https://Jack95uk.github.io/HappyHour/",
+  "homepage": "https://jacknevitt.github.io/HappyHour/",
   "description": "This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).",
   "main": "./src/index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jack95uk/HappyHour.git"
+    "url": "git+https://github.com/jacknevitt/HappyHour.git"
   },
-  "author": "jack95uk",
+  "author": "jacknevitt",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Jack95uk/HappyHour/issues"
+    "url": "https://github.com/jacknevitt/HappyHour/issues"
   },
   "jest": {
     "collectCoverageFrom": [

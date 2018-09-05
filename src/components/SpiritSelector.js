@@ -8,7 +8,7 @@ import { addSpirit, removeSpirit } from '../actions/actionCreators';
 const SpiritSelector = ({ selectedSpirits, dispatch }) => {
   const spirits = Object
     .entries(Spirits)
-    .map(entry => ({ name: entry[0], value: entry[1] }))
+    .map(([name, value]) => ({ name, value }))
     .sort((a, b) => {
       if (a.name > b.name) return 1;
       if (a.name < b.name) return -1;
@@ -24,8 +24,8 @@ const SpiritSelector = ({ selectedSpirits, dispatch }) => {
   };
 
   return (
-    <div className="spirit-selector">
-      <h2>What&apos;ve you got?</h2>
+    <section className="spirit-selector">
+      <h2>What&#39;ve you got?</h2>
       <div className="checkbox-group">
         {spirits.map(spirit => (
           <SpiritCheckbox
@@ -37,7 +37,7 @@ const SpiritSelector = ({ selectedSpirits, dispatch }) => {
           />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

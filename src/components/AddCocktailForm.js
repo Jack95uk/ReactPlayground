@@ -3,6 +3,8 @@ import firebase from 'firebase';
 
 import * as Spirits from '../resources/spirits';
 
+import SpiritCheckbox from './SpiritCheckbox';
+
 class AddCocktailForm extends React.Component {
   state = {
     name: '',
@@ -35,37 +37,64 @@ class AddCocktailForm extends React.Component {
   }
 
   handleCheckboxChange = (e) => {
+    const { selectedSpirits } = this.state;
     if (e.target.checked) {
       this.setState({
-        selectedSpirits: this.state.selectedSpirits | e.target.value,
+        selectedSpirits: selectedSpirits | Spirits[e.target.name],
       });
     } else {
       this.setState({
-        selectedSpirits: this.selectedSpirits & ~e.target.value,
+        selectedSpirits: selectedSpirits & ~Spirits[e.target.name],
       });
     }
   }
 
   render() {
     const { name, url, selectedSpirits } = this.state;
+    const spirits = Object.entries(Spirits)
+      .map(([spiritName, value]) => ({ spiritName, value }))
+      .sort((a, b) => {
+        if (a.spiritName > b.spiritName) return 1;
+        return a.spiritName < b.spiritName ? -1 : 0;
+      });
     return (
-      <form onSubmit={this.handleSubmit}>
-        <input type="text" name="name" value={name} onChange={this.handleChange} required />
-        <input type="url" name="url" value={url} onChange={this.handleChange} required />
-        <div>
-          {Object.keys(Spirits).map(key => (
-            <div key={key}>
-              <label htmlFor={`AddCocktailForm_${key}`}>
-                <input id={`AddCocktailForm_${key}`} type="checkbox" value={Spirits[key]} checked={selectedSpirits & Spirits[key]} onChange={this.handleCheckboxChange} />
-                {key}
-              </label>
-            </div>
-          ))}
-        </div>
-        <div>
-          <button type="submit">Save</button>
-        </div>
-      </form>
+      <section>
+        <form onSubmit={this.handleSubmit}>
+          <h3>Add Your Own Cocktail</h3>
+          <input
+            type="text"
+            name="name"
+            className="form-field"
+            placeholder="Cocktail Name"
+            value={name}
+            onChange={this.handleChange}
+            required
+          />
+          <input
+            type="url"
+            name="url"
+            className="form-field"
+            placeholder="URL"
+            value={url}
+            onChange={this.handleChange}
+            required
+          />
+          <div>
+            {spirits.map(({ spiritName, value }) => (
+              <SpiritCheckbox
+                key={spiritName}
+                name={spiritName}
+                checked={!!(selectedSpirits & value)}
+                onChange={this.handleCheckboxChange}
+                prefix="AddCocktailForm_"
+              />
+            ))}
+          </div>
+          <div>
+            <button type="submit">Save</button>
+          </div>
+        </form>
+      </section>
     );
   }
 }

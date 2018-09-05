@@ -40,24 +40,24 @@ h1, h2, h3, h4, h5, h6 {
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 15px;  
 }
-.spirit-selector,
-    .cocktail-selector {
-      grid-column: span 3;
-      display: grid;
-      grid-template-rows: auto 1fr;
-    }
+  aside,
+  main {
+    grid-column: span 3;
+    display: grid;
+    grid-template-rows: auto 1fr;
+  }
 
-  .spirit-selector,
-  .cocktail-selector {
+  aside,
+  main {
     grid-column: span 3;
     display: grid;
     grid-template-rows: auto 1fr;
   }
   @media screen and (min-width: 500px){
-    .spirit-selector {
+    aside {
       grid-column: span 1;      
     }
-    .cocktail-selector {
+    main {
       grid-column: span 2;
     }
   }

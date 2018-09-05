@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 
 import { GetReadablePropName } from '../utilities';
 
-const SpiritCheckbox = ({ name, checked, onChange }) => (
-  <div key={name} className="spirit-option">
-    <label htmlFor={name}>
+const SpiritCheckbox = ({
+  name, checked, onChange, prefix,
+}) => (
+  <div className="spirit-option">
+    <label htmlFor={prefix + name}>
       <input
-        id={name}
+        id={prefix + name}
         type="checkbox"
         name={name}
         checked={checked}
@@ -24,10 +26,12 @@ SpiritCheckbox.propTypes = {
   name: PropTypes.string.isRequired,
   checked: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
+  prefix: PropTypes.string,
 };
 
 SpiritCheckbox.defaultProps = {
   checked: false,
+  prefix: '',
 };
 
 export default SpiritCheckbox;

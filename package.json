@@ -50,7 +50,8 @@
     "deploy": "gh-pages -d build",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "now-build": "react-scripts build"
   },
   "devDependencies": {
     "eslint": "^4.9.0",

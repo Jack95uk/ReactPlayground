@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 
 import CocktailSelector from './CocktailSelector';
 import SpiritSelector from './SpiritSelector';
-import AddCocktailForm from './AddCocktailForm';
 
 import { updateHue } from '../actions/actionCreators';
 
@@ -51,7 +50,6 @@ class App extends Component {
           <div className="grid">
             <aside>
               <SpiritSelector />
-              <AddCocktailForm />
             </aside>
             <main>
               <CocktailSelector />

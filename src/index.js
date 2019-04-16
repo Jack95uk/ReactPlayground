@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import Thunk from 'redux-thunk';
-import firebase from 'firebase';
+import firebase from 'firebase/app';
 
 import registerServiceWorker from './registerServiceWorker';
 import * as Reducers from './reducers/index';
@@ -21,7 +21,8 @@ const config = {
 };
 firebase.initializeApp(config);
 
-const enhancers = compose(window.devToolsExtension ? window.devToolsExtension() : f => f);
+// eslint-disable-next-line no-underscore-dangle
+const enhancers = compose(window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : f => f);
 
 const store = createStore(combineReducers(Reducers), enhancers, applyMiddleware(Thunk));
 
